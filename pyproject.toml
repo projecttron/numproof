@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "numproof"
+version = "0.1.0"
+description = "Deterministic numeric & financial verification for AI agents and spreadsheets — thin client for the hosted NumProof API."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["verification", "ai-agents", "spreadsheet", "finance", "mcp", "deterministic", "audit", "llm-guardrails"]
+authors = [{ name = "NumProof" }]
+dependencies = []   # stdlib only
+
+[project.urls]
+Homepage = "https://numproof.com"
+Documentation = "https://numproof.com/docs"
+Source = "https://github.com/projecttron/numproof"
+
+[project.scripts]
+numproof-mcp = "numproof.mcp:main"
+
+[tool.setuptools.packages.find]
+include = ["numproof*"]

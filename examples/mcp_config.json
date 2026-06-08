@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "numproof": {
+      "command": "python",
+      "args": ["-m", "numproof.mcp"],
+      "env": {
+        "NUMPROOF_API_KEY": "your_key_here"
+      }
+    }
+  }
+}
