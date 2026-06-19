@@ -1,0 +1,25 @@
+{
+  "schema": "numproof-verification-receipt-v1",
+  "engine": "edra-verify-core",
+  "claim": "120 + 90 + 340 + 15 == 565",
+  "verdict": "VERIFY",
+  "certificate": "EXACT_ARITHMETIC",
+  "detail": "120+90+340+15 = 565 exactly",
+  "recheck": {
+    "kind": "value",
+    "expr": "120+90+340+15",
+    "claimed": "565",
+    "rederivable": true
+  },
+  "verified_at": "2026-06-19T14:57:54Z",
+  "signature": {
+    "algorithm": "ETH-EIP191-SECP256K1",
+    "key_id": "audit-main-v1",
+    "signed_at": "2026-06-19T14:57:54Z",
+    "payload_sha256": "bca9e0f1a9dbe5863c003d789c9b4a6af395c0ccafa8c1d9752695cdca52879b",
+    "signer": "0x19E7E376E7C213B7E7e7e46cc70A5dD086DAff2A",
+    "message": "numproof verification receipt\nversion:numproof-verification-receipt-v1\nalgorithm:ETH-EIP191-SECP256K1\nkey_id:audit-main-v1\nsigned_at:2026-06-19T14:57:54Z\npayload_sha256:bca9e0f1a9dbe5863c003d789c9b4a6af395c0ccafa8c1d9752695cdca52879b",
+    "value": "0x94b828c59e8a077f5440ce695a3248e2ab8173794fff0cf0d2c37c54c9d38ec03c1b3aa88cc86ef4b2f275381759c19be39d7ea7d55ee4413f2fa469b7a39cab1c"
+  },
+  "_note": "DEMO receipt signed with a throwaway key. Production receipts are signed by the published NumProof signer; verify with: numproof-verify receipt.json --signer 0x<published>"
+}

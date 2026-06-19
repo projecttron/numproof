@@ -97,6 +97,26 @@ See [`examples/`](examples/) for runnable scripts (verify, audit, covenants, age
 
 ---
 
+## Independently re-checkable receipts (the part you can't fake)
+
+Any verdict can be returned as a **signed Verification Receipt** — and you re-check it **offline,
+trusting neither the transport nor NumProof**:
+
+```bash
+pip install "numproof[verify]"
+numproof-verify receipt.json --signer 0x<published-NumProof-signer>
+# OK   independently re-derived + signature valid
+```
+
+It recovers the EIP-191 signer (tamper-evident) **and**, for `value`/`agg`/`identity`/`sequence`
+claims, independently **re-derives the verdict** with stdlib `Fraction` + `sympy`. A tampered
+field, a wrong signer, or a verdict that doesn't actually hold all fail loudly — even a receipt
+NumProof itself mis-signed is caught by the re-derivation. An agent can recompute a number for
+itself; it **cannot** issue an independent, signed attestation a *second party* will accept. That
+independence — not the arithmetic — is the product. Format + spec: [`RECEIPT_FORMAT.md`](RECEIPT_FORMAT.md).
+
+---
+
 ## Why deterministic (and why it matters)
 
 Generic "AI guardrails" use a model to grade a model — probabilistic, and itself can hallucinate.

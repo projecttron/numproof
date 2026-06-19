@@ -11,7 +11,11 @@ requires-python = ">=3.9"
 license = { text = "MIT" }
 keywords = ["verification", "ai-agents", "spreadsheet", "finance", "mcp", "deterministic", "audit", "llm-guardrails"]
 authors = [{ name = "NumProof" }]
-dependencies = []   # stdlib only
+dependencies = []   # core SDK is stdlib-only
+
+[project.optional-dependencies]
+# offline receipt re-checker (numproof-verify): signature recovery + commodity re-derivation
+verify = ["eth-account>=0.13,<0.16", "sympy>=1.12,<2"]
 
 [project.urls]
 Homepage = "https://numproof.com"
@@ -20,6 +24,7 @@ Source = "https://github.com/projecttron/numproof"
 
 [project.scripts]
 numproof-mcp = "numproof.mcp:main"
+numproof-verify = "numproof.recheck:main"
 
 [tool.setuptools.packages.find]
 include = ["numproof*"]
