@@ -2,6 +2,8 @@
 
 [![ci](https://github.com/projecttron/numproof/actions/workflows/ci.yml/badge.svg)](https://github.com/projecttron/numproof/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+<!-- mcp-name: io.github.projecttron/numproof -->
+
 **The deterministic numeric truth layer for AI agents and spreadsheets.**
 
 Your agent writes *"gross margin improved from 42.1% to 44.8%"* or *"the workbook is internally

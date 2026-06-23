@@ -1,0 +1,6 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "maintainers": ["projecttron"],
+  "name": "NumProof",
+  "description": "Deterministic, signed verification of numeric/financial claims for AI agents and spreadsheets."
+}

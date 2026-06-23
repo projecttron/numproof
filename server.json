@@ -1,0 +1,28 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.projecttron/numproof",
+  "title": "NumProof",
+  "description": "Deterministic, signed verification of numeric/financial claims for AI agents & spreadsheets. VERIFY/REFUTE/ABSTAIN with provenance and offline-re-checkable signed receipts.",
+  "version": "0.1.0",
+  "websiteUrl": "https://numproof.com",
+  "repository": {
+    "url": "https://github.com/projecttron/numproof",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://numproof.com/mcp"
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "numproof",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}
