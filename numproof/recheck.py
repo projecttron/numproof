@@ -32,7 +32,11 @@ def _canonical_json(obj) -> bytes:
 
 def _payload_hash(receipt: dict) -> str:
     import hashlib
-    payload = {k: v for k, v in receipt.items() if k != "signature"}
+    # The signed payload is the receipt minus the signature block and minus any top-level key
+    # beginning with "_" (non-canonical human annotations, e.g. "_note", never covered by the
+    # signature). Keeping them out of the hash lets a receipt carry a readable note without
+    # invalidating its signature.
+    payload = {k: v for k, v in receipt.items() if k != "signature" and not k.startswith("_")}
     return hashlib.sha256(_canonical_json(payload)).hexdigest()
 
 

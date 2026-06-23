@@ -5,9 +5,9 @@ deterministic numeric verifier with an API/CLI/MCP/x402 motion.**
 
 | | **NumProof** | LLM guardrails (Patronus, Guardrails AI, Lakera) | AWS Automated Reasoning | Wolfram / SymPy | Finance suites (Trullion, BlackLine) |
 |---|---|---|---|---|---|
-| Deterministic numeric/financial verdict | ✅ exact arithmetic + symbolic | ❌ model judges model | ✅ formal, but policy-centric | ✅ compute engine | ◻ workflow, not a verdict API |
+| Deterministic numeric/financial verdict | ✅ exact arithmetic + symbolic | ◻ mostly LLM-judges-LLM | ✅ formal, but policy-centric | ✅ compute engine | ◻ workflow, not a verdict API |
 | Cell/formula provenance on `xlsx/csv` | ✅ | ❌ text-first | ❌ not spreadsheet-native | ❌ | ✅ |
-| Self-serve API / CLI / MCP | ✅ | ◻ partial | ◻ inside Bedrock | ◻ API, not workflow | ❌ demo-led sales |
+| Self-serve API / CLI / MCP | ✅ | ◻ partial | ◻ inside Bedrock | ◻ API, not workflow | ◻ suite/sales-led |
 | Signed, offline-verifiable evidence | ✅ `/audit/verify` | ❌ | ◻ | ❌ | ◻ internal audit trail |
 | Covenant / ratio / footing packs | ✅ | ❌ | ❌ | ❌ | ✅ |
 | Pay-per-call (x402) | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -24,4 +24,5 @@ NumProof is the productized transition layer: **upload/POST → verdict with pro
 audit package → call it from an agent via MCP/API/x402.** Formal (Lean) proofs are available as a
 premium evidence artifact, not a required interface.
 
-*Positioning, not a benchmark — verify against your own workflow at https://numproof.com.*
+*Positioning, not a benchmark. Based on public product docs as of June 2026; capabilities change and
+we're not affiliated with the named vendors. Verify against your own workflow at https://numproof.com.*

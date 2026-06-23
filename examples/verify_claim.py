@@ -10,7 +10,7 @@ claims = [
     "two 10% raises equal a 21% total increase",
     "gross margin is 60% when gross profit is 600 and revenue is 1000",
     "LTV/CAC is 3 when LTV is 150 and CAC is 50",
-    "operating cash flow grew 18% from 1000 to 1180",   # REFUTE: 1180/1000 = 18%? -> actually 18%, edit to taste
+    "operating cash flow grew 20% from 1000 to 1180",   # REFUTE: actual growth is +18%, not +20%
 ]
 
 for c in claims:

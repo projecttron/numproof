@@ -42,7 +42,7 @@ tampered field, a wrong signer, or a verdict that doesn't actually hold all fail
     "algorithm": "ETH-EIP191-SECP256K1",
     "key_id": "audit-main-v1",
     "signed_at": "2026-06-08T...Z",
-    "payload_sha256": "<sha256 of canonical payload minus signature>",
+    "payload_sha256": "<sha256 of canonical payload: receipt minus signature and minus _-prefixed keys>",
     "signer": "0x...",                      // recovered must equal this
     "message": "numproof verification receipt\nversion:...\npayload_sha256:...",
     "value": "0x<eip-191 signature>"
@@ -64,6 +64,9 @@ tampered field, a wrong signer, or a verdict that doesn't actually hold all fail
 - **"SIGNATURE VALID BUT VERDICT MISMATCH" / "INVALID"** — reject: tampered, wrong signer, or the verdict doesn't hold.
 
 ## Canonicalization (for independent implementations)
-`payload_sha256 = sha256( json.dumps(receipt_without_signature, sort_keys=True, ensure_ascii=False,
-separators=(",",":"), default=str) )`. The signed message is the multiline `signature.message`
-string; recover the address from it via EIP-191 (`personal_sign`). See `numproof/recheck.py` (MIT).
+`payload_sha256 = sha256( json.dumps(payload, sort_keys=True, ensure_ascii=False,
+separators=(",",":"), default=str) )`, where `payload` is the receipt **minus the `signature`
+block and minus any top-level key beginning with `_`**. Keys like `_note` are non-canonical human
+annotations excluded from the signature, so a receipt can carry a readable note without invalidating
+it. The signed message is the multiline `signature.message` string; recover the address from it via
+EIP-191 (`personal_sign`). See `numproof/recheck.py` (MIT).
