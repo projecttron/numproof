@@ -101,6 +101,24 @@ See [`examples/`](examples/) for runnable scripts (verify, audit, covenants, age
 
 ---
 
+## Drop-in guardrails for agent frameworks
+
+Verify the numbers your agent emits **before it acts**, in the framework you already use
+(`numproof/integrations/` — each lazily imports its framework, so the `numproof` client stays stdlib-only):
+
+```python
+# OpenAI Agents SDK — output guardrail that trips on REFUTE
+from agents import Agent
+from numproof.integrations.openai_agents import numproof_output_guardrail
+agent = Agent(name="...", instructions="...", output_guardrails=[numproof_output_guardrail()])
+```
+
+- **OpenAI Agents SDK** — `numproof.integrations.openai_agents` (output guardrail / tripwire)
+- **Pydantic AI** — `numproof.integrations.pydantic_ai` (output validator; raises `ModelRetry` with the counterexample so the model self-corrects)
+- **LangChain** — `numproof.integrations.langchain` (a NumProof `Tool` + an output checker)
+
+`VERIFY` → pass · `REFUTE` → block/retry with the counterexample · `ABSTAIN` → pass-through (configurable). Runnable examples in [`examples/`](examples/); install only the framework you use.
+
 ## Independently re-checkable receipts (the part you can't fake)
 
 Any verdict can be returned as a **signed Verification Receipt** — and you re-check it **offline,
