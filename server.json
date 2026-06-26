@@ -3,7 +3,7 @@
   "name": "io.github.projecttron/numproof",
   "title": "NumProof",
   "description": "Deterministic signed verification of numeric & financial claims for AI agents & spreadsheets.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://numproof.com",
   "repository": {
     "url": "https://github.com/projecttron/numproof",
@@ -20,7 +20,7 @@
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "numproof",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "runtimeHint": "uvx",
       "transport": { "type": "stdio" }
     }
