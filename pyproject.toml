@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "numproof"
-version = "0.1.0"
+version = "0.1.1"
 description = "Deterministic numeric & financial verification for AI agents and spreadsheets — thin client for the hosted NumProof API."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -16,6 +16,10 @@ dependencies = []   # core SDK is stdlib-only
 [project.optional-dependencies]
 # offline receipt re-checker (numproof-verify): signature recovery + commodity re-derivation
 verify = ["eth-account>=0.13,<0.16", "sympy>=1.12,<2"]
+# DeepEval custom metric (numproof.integrations.deepeval): pip install 'numproof[deepeval]'
+deepeval = ["deepeval>=2,<5"]
+# Guardrails AI Hub validator (numproof.integrations.guardrails): pip install 'numproof[guardrails]'
+guardrails = ["guardrails-ai>=0.5,<0.7"]
 
 [project.urls]
 Homepage = "https://numproof.com"

@@ -1,8 +1,8 @@
 """NumProof MCP server (stdio) — exposes NumProof as tools to MCP-capable agents.
 
 Bridges stdio MCP clients (Claude Desktop, etc.) to the hosted NumProof Streamable-HTTP
-MCP endpoint. Tools: `verify_claim`, `audit_rows`, `diff_rows`. No verification logic here
-— it forwards to the hosted engine.
+MCP endpoint. Tools: `verify_claim`, `audit_rows`, `diff_rows`, `covenant_rules`. No
+verification logic here — it forwards to the hosted engine.
 
 Run:    python -m numproof.mcp
 Config: {"mcpServers": {"numproof": {"command": "python", "args": ["-m", "numproof.mcp"]}}}
@@ -29,6 +29,11 @@ TOOLS = [
      "inputSchema": {"type": "object",
                      "properties": {"rows_before": {"type": "array"}, "rows_after": {"type": "array"}},
                      "required": ["rows_before", "rows_after"]}},
+    {"name": "covenant_rules",
+     "description": "Check finance covenant rules (e.g. DSCR, Debt/EBITDA) over labeled rows; rule_pack selects a built-in pack such as credit_covenants_basic. Returns a signed covenant bundle.",
+     "inputSchema": {"type": "object",
+                     "properties": {"rows": {"type": "array"}, "rules": {"type": "array"}, "rule_pack": {"type": "string"}},
+                     "required": ["rows"]}},
 ]
 
 

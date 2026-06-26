@@ -116,6 +116,8 @@ agent = Agent(name="...", instructions="...", output_guardrails=[numproof_output
 - **OpenAI Agents SDK** — `numproof.integrations.openai_agents` (output guardrail / tripwire)
 - **Pydantic AI** — `numproof.integrations.pydantic_ai` (output validator; raises `ModelRetry` with the counterexample so the model self-corrects)
 - **LangChain** — `numproof.integrations.langchain` (a NumProof `Tool` + an output checker)
+- **DeepEval (Confident AI)** — `numproof.integrations.deepeval` (a deterministic `NumProofMetric`: VERIFY → score 1.0, REFUTE → score 0.0 with the counterexample on `.reason`)
+- **Guardrails AI** — `numproof.integrations.guardrails` (a Hub `Validator`: REFUTE → `FailResult` with the counterexample, so your `on_fail` action — reask/fix/exception — fires)
 
 `VERIFY` → pass · `REFUTE` → block/retry with the counterexample · `ABSTAIN` → pass-through (configurable). Runnable examples in [`examples/`](examples/); install only the framework you use.
 
@@ -154,7 +156,7 @@ beats *"another model thinks it looks right."* Full table: [`comparison.md`](com
 | Plan | Price | For |
 |---|---|---|
 | Sandbox | **$0** | web demo + free credits |
-| x402 PAYG | **$0.025 / credit** | agent-to-tool, no subscription |
+| x402 PAYG | **$0.005 / call** | agent-to-tool, no subscription |
 | Builder | **$29/mo** | API + MCP + CLI, 2k credits |
 | Pro | **$99/mo** | batch, webhooks, CI, signed exports, 10k credits |
 | Finance Team | **$299/mo** | 5 seats, version diff, covenant packs, branded exports |
